@@ -13,11 +13,11 @@ def leer_3_dig(num_list):
     ceros = 0
     
     for num1 in reversed(num_list):
-        if avance == 1: #Unidad
+        if avance == 1:  # Unidad
             num_aux = int(num1)
             res = unidad[num_aux]
             ceros += int((lambda x: x == '0')(num1))
-        elif avance == 2: #Decena
+        elif avance == 2:  # Decena
             if ceros == 1 or num1 == '0':
                 res = decenas[int(num1)] + res
             elif num1 == '1':
@@ -27,7 +27,7 @@ def leer_3_dig(num_list):
             else:
                 res = decenas[int(num1)] + ' y ' + res
             ceros += int((lambda x: x == '0')(num1))
-        elif avance == 3:   #Centena
+        elif avance == 3:  # Centena
             if ceros == 2 and num1 == '1':
                 res = 'cien'
             elif ceros == 2 or num1 == '0':
