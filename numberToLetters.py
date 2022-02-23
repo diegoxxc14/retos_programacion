@@ -1,7 +1,7 @@
 def leer_3_dig(num_list):
     '''Separa e identifica cada dígito de un número entero con su equivalente en letras.
-    
     '''
+    
     unidad = ['','un','dos','tres','cuatro','cinco','seis','siete','ocho','nueve']
     decenas = ['','diez','veinte','treinta','cuarenta','cincuenta','sesenta','setenta','ochenta','noventa']
     dec10 = ['','once','doce','trece','catorce','quince','dieciséis','diecisiete','dieciocho','diecinueve']
@@ -45,12 +45,12 @@ def numeros_letras(num):
 
     Parámetros:
     num -- número a convertir (debe ser mayor a 0)
-
     '''
+
     num_list = list(str(num))
     lon = len(num_list)
     if lon <= 3:
-        return leer_3_dig(num_list)
+        return leer_3_dig(num_list).upper()
     elif lon <= 6:
         centena = leer_3_dig(num_list[lon-3:])
         mil = leer_3_dig(num_list[:lon-3])+' '
@@ -60,4 +60,4 @@ def numeros_letras(num):
     else:
         return 'Número demasiado grande. Rango entre 1 - 999999.'    
 
-print(numeros_letras(input()))
+print(numeros_letras(input('Número (int): ')))
