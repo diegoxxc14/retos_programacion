@@ -1,31 +1,33 @@
 function getIndexsForPalindrome(word) {
-    letters = word.split('')
-    lettersRev = word.split('').reverse()
-    if (letters.toString()==lettersRev.toString()) {
-        return []
-    } else {
-        let last = letters.length - 1
-        let middle = Math.floor(letters.length/2)
-        for (let first = 0; first < middle; first++) {
-
-            if(letters[first] != letters[last]) {
-                let letter = letters[first]
-                console.log(`-first:${first} -last:${last}`)
-                console.log(`-first:${letters[first]} -last:${letters[last]}`)
-
-                for (let i = first + 1; i <= last - 1; i++) {
-                    letters[first] = letters[i]
-                    letters[i] = letter
-                    lettersRev = letters
-                    console.log('Intercambio : ' + letters.toString())
-                    if (letters.toString()==lettersRev.reverse().toString()) {
-                        return [first, i]
-                    }
-                    letters = word.split('')  // Reiniciar
+    let letters = word.split('')
+    let lettersRev = word.split('').reverse()
+    let last = letters.length - 1
+    let middle = Math.floor(letters.length/2)
+    for (let first = 0; first <= middle; first++) {
+        if(letters[first] != letters[last]) {
+            let letterFirst = letters[first]
+            for (let i = first + 1; i <= middle; i++) {
+                letters[first] = letters[i]
+                letters[i] = letterFirst
+                lettersRev = letters
+                if (letters.toString()==lettersRev.reverse().toString()) {
+                    return [first, i]
                 }
-                return null
+                letters = word.split('')  // Reiniciar
             }
-            last--
+            let letterLast = letters[last]
+            for (let i = last; i >= middle; i--) {
+                letters[last] = letters[i]
+                letters[i] = letterLast
+                lettersRev = letters
+                if (letters.toString()==lettersRev.reverse().toString()) {
+                    return [i, last]
+                }
+                letters = word.split('')  // Reiniciar
+            }
+            return null
         }
+        last--
     }
+    return []
   }
