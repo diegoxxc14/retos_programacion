@@ -1,5 +1,5 @@
 # Retos Programación
-Ejercicios de programación resueltos con diferentes leguajes. 
+En este repositorio te presento algunos ejercicios de programación resueltos con diferentes lenguajes. 
 
     print('Hola mundo :P')
 
